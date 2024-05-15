@@ -1,3 +1,18 @@
+<p align="center">
+    <a href="https://laravel.com">
+        <img alt="Laravel v10.x" src="https://img.shields.io/badge/Laravel-v10.x-FF2D20">
+    </a>
+    <a href="https://packagist.org/packages/laravelcm/abstract-ip-geolocation">
+        <img src="https://img.shields.io/packagist/dt/laravelcm/abstract-ip-geolocation" alt="Total Downloads">
+    </a>
+    <a href="https://packagist.org/packages/laravelcm/abstract-ip-geolocation">
+        <img src="https://img.shields.io/packagist/v/laravelcm/abstract-ip-geolocation" alt="Latest Stable Version">
+    </a>
+    <a href="https://packagist.org/packages/laravelcm/abstract-ip-geolocation">
+        <img src="https://img.shields.io/packagist/l/laravelcm/abstract-ip-geolocation" alt="License">
+    </a>
+</p>
+
 # [<img src="https://assets-global.website-files.com/65166126ca18241731aa26b0/65390de624cb65770560dda5_FAV.png" alt="Abstract API" width="24"/>](https://www.abstractapi.com) Abstract’s IP Geolocation API Laravel Client Library
 
 ### Getting Started
