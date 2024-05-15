@@ -41,5 +41,11 @@ Will return the following string to the `index` view:
 ```
 
 ### Configuration
-
 wip..
+
+### Test
+wip..
+
+## License
+
+This package is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
