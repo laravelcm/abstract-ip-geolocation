@@ -1,0 +1,56 @@
+{
+  "name": "laravelcm/abstract-ip-geolocation",
+  "description": "Abstract’s IP Geolocation API is a fast, lightweight, modern, and RESTful JSON API for determining the location and other details of IP addresses from over 190 countries.",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "ip-geolocation",
+    "abstract-api"
+  ],
+  "authors": [
+    {
+      "name": "Arthur Monney",
+      "email": "monneylobe@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "ext-json": "*",
+    "illuminate/support": "^10.0|^11.0",
+    "spatie/laravel-package-tools": "^1.15"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^8.5",
+    "laravel/pint": "^1.1",
+    "pestphp/pest": "^2.34",
+    "mockery/mockery": "^1.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Laravelcm\\AbstractIpGeolocation\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Laravelcm\\AbstractIpGeolocation\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Laravelcm\\AbstractIpGeolocation\\AbstractIpGeolocationServiceProvider"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/pest",
+    "pint": "vendor/bin/pint"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
+}
