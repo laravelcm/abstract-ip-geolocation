@@ -25,6 +25,8 @@ final class AbstractIpGeolocation
 
         $request->merge(['abstract-ip-geolocation' => $response]);
 
+        session()->put('abstract-ip-geolocation', $response);
+
         return $next($request);
     }
 
