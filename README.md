@@ -44,7 +44,10 @@ protected $middleware = [
 
 ```php
 Route::get('/', function () {
-    $location = "The IP address " . request()->get('abstract-ip-geolocation')['ip_address'];
+    $ip = request()->get('abstract-ip-geolocation')['ip_address']
+    // Or
+    $ip = session()->get('abstract-ip-geolocation')['ip_address']
+    $location = "The IP address " . $ip;
     return view('index', ['location' => $location]);
 });
 ```
