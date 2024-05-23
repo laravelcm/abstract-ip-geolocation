@@ -104,7 +104,7 @@ final class GeolocationData
             countryCode: self::valueIfExist('country_code', $data),
             countryIsEU: self::valueIfExist('country_is_eu', $data),
             continent: self::valueIfExist('continent', $data),
-            continentCode: self::valueIfExist('continent', $data),
+            continentCode: self::valueIfExist('continent_code', $data),
             continentGeonameId: self::valueIfExist('country_geoname_id', $data),
             longitude: self::valueIfExist('longitude', $data),
             latitude: self::valueIfExist('latitude', $data),
