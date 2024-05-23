@@ -10,5 +10,5 @@ interface CacheInterface
 
     public function get(string $name): mixed;
 
-    public function set(string $name, $value);
+    public function set(string $name, $value): void;
 }

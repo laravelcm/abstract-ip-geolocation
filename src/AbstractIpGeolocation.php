@@ -4,18 +4,46 @@ declare(strict_types=1);
 
 namespace Laravelcm\AbstractIpGeolocation;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Laravelcm\AbstractIpGeolocation\Exceptions\AbstractApiGeolocationException;
 
-final class AbstractIpGeolocation
+class AbstractIpGeolocation
 {
-    public function __construct(
-        public string $token,
-        public ?string $fields = null,
-        public ?DefaultCache $cache = null
-    ) {
+    public ?DefaultCache $cache = null;
+
+    public ?string $token = null;
+
+    public ?string $fields = null;
+
+    public function __construct(public Request $request)
+    {
+        $this->token = config('abstract-ip-geolocation.api_key');
+        $this->fields = config('abstract-ip-geolocation.fields');
+
+        if (config('abstract-ip-geolocation.cache.enable')) {
+            $this->cache = new DefaultCache();
+        }
     }
 
+    /**
+     * @throws AbstractApiGeolocationException
+     */
+    public function initialize(): array
+    {
+        $ipAddress = null;
+
+        if (config('abstract-ip-geolocation.include_ip')) {
+            $ipAddress = (config('abstract-ip-geolocation.ip_selector', new IpSelector()))
+                ->getIp($this->request);
+        }
+
+        return $this->details($ipAddress);
+    }
+
+    /**
+     * @throws AbstractApiGeolocationException
+     */
     public function details(?string $ipAddress = null): array
     {
         if ($this->cache) {
@@ -33,8 +61,8 @@ final class AbstractIpGeolocation
             ])
                 ->get('https://ipgeolocation.abstractapi.com/v1', [
                     'api_key' => $this->token,
-                    'ip_address' => $ipAddress,
                     'fields' => $this->fields,
+                    'ip_address' => $ipAddress,
                 ]);
         } catch (\Exception $e) {
             throw new AbstractApiGeolocationException($e->getMessage());

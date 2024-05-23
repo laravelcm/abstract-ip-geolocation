@@ -17,8 +17,8 @@ final class DefaultCache implements CacheInterface
 
     public function __construct()
     {
-        $this->maxsize = config('abstract-ip-geolocation.cache.maxsize');
-        $this->ttl = config('abstract-ip-geolocation.cache.ttl');
+        $this->maxsize = (int) config('abstract-ip-geolocation.cache.maxsize');
+        $this->ttl = (int) config('abstract-ip-geolocation.cache.ttl');
     }
 
     public function has(string $name): bool
@@ -31,7 +31,7 @@ final class DefaultCache implements CacheInterface
         return Cache::get($name);
     }
 
-    public function set(string $name, $value)
+    public function set(string $name, $value): void
     {
         if (! $this->has($name)) {
             $this->elements[] = $name;

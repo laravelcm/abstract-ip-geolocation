@@ -10,7 +10,7 @@ return [
     |--------------------------------------------------------------------------
     | API Key
     |--------------------------------------------------------------------------
-    |
+    | Your API token from abstractapi.com.
     |
     */
 
@@ -76,13 +76,16 @@ return [
         'enable' => true,
 
         /*
-        |
+        | This value is used to define the number of times a user's ip address can be stored,
+        | if it has changed several times in the same session. Once this number has been reached,
+        | the old values will be replaced.
         */
 
         'maxsize' => 5,
 
         /*
-        |
+        | Time until cached value is no longer accessible
+        | The default cached time is 24 hours (value).
         |
         */
 

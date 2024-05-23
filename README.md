@@ -44,10 +44,8 @@ protected $middleware = [
 
 ```php
 Route::get('/', function () {
-    $ip = request()->get('abstract-ip-geolocation')['ip_address']
-    // Or
-    $ip = session()->get('abstract-ip-geolocation')['ip_address']
-    $location = "The IP address " . $ip;
+    $geolocation = session()->get('abstract-ip-geolocation')
+    $location = "The IP address " . $geolocation->ipAddress;
     return view('index', ['location' => $location]);
 });
 ```
@@ -55,7 +53,7 @@ Route::get('/', function () {
 Will return the following string to the `index` view:
 
 ```shell
-"The IP address 127.0.0.1."
+"The IP address 127.0.0.1"
 ```
 
 ### Configuration
