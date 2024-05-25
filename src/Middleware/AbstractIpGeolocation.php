@@ -24,8 +24,25 @@ final class AbstractIpGeolocation
             (new IpGeolocation($request))->initialize()
         );
 
-        session()->put('abstract-ip-geolocation', $response);
+        $this->manageSession($response);
 
         return $next($request);
+    }
+
+    public function manageSession(GeolocationData $geolocation): void
+    {
+        $sessionKey = 'abstract-ip-geolocation';
+
+        if (session()->exists($sessionKey)) {
+            /** @var GeolocationData $currentValue */
+            $currentValue = session()->get($sessionKey);
+
+            if ($currentValue->ipAddress !== $geolocation->ipAddress) {
+                session()->forget($sessionKey);
+                session()->put($sessionKey, $geolocation);
+            }
+        } else {
+            session()->put($sessionKey, $geolocation);
+        }
     }
 }

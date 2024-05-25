@@ -7,11 +7,11 @@ namespace Laravelcm\AbstractIpGeolocation\DataObject;
 final class Connection
 {
     public function __construct(
-        public string $connectionType,
-        public int $autonomousSystemNumber,
-        public string $autonomousSystemOrganization,
-        public string $ispName,
-        public string $organizationName,
+        public ?string $connectionType,
+        public ?int $autonomousSystemNumber,
+        public ?string $autonomousSystemOrganization,
+        public ?string $ispName,
+        public ?string $organizationName,
     ) {
     }
 }
